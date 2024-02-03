@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace C__practika
+namespace C__HW_Modul_1_Buikov
 {
     internal class Program
     {
@@ -20,7 +20,7 @@ namespace C__practika
             до 100 требуется вывести сообщение об ошибке.
             */
 
-            Console.WriteLine("Enter a number from 1 to 100");
+            Console.WriteLine("Введите число от 1 до 100");
             double number = Convert.ToDouble(Console.ReadLine());
 
             if (number > 1 && number < 100)
@@ -39,13 +39,14 @@ namespace C__practika
                 }
                 else if (number % 3 != 0 && number % 5 != 0)
                 {
-                    Console.WriteLine("The number is not a multiple of 3 and 5");
+                    Console.WriteLine("Это число не кратно 3 и 5");
                 }
             }
             else
             {
-                Console.WriteLine("The number is not in the range from 1 to 100");
+                Console.WriteLine("число не находится в диапазоне от 1 до 100");
             }
+
 
             /* ЗАДАНИЕ 2
              Пользователь вводит с клавиатуры два числа. Первое
@@ -54,23 +55,25 @@ namespace C__practika
             90 и 10. Требуется вывести на экран 10 процентов от 90.
             Результат: 9.
             */
-            Console.WriteLine("Enter number:");
+            Console.WriteLine("Введите номер:");
             double number1 = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Enter percent:");
+            Console.WriteLine("Введите процент:");
             double percent = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine($"Result {number1 * (percent / 100)}");
+            Console.WriteLine($"Результат {number1 * (percent / 100)}");
+
 
             /* ЗАДАНИЕ 3
              * Пользователь вводит с клавиатуры четыре цифры.
             Необходимо создать число, содержащее эти цифры. Например, если с клавиатуры введено 1, 5, 7, 8 тогда нужно
             сформировать число 1578.*/
-            Console.WriteLine("enter four numbers ");
+            Console.WriteLine("введите четырёхзначный номер ");
             int num1 = Convert.ToInt32(Console.ReadLine());
             int num2 = Convert.ToInt32(Console.ReadLine());
             int num3 = Convert.ToInt32(Console.ReadLine());
             int num4 = Convert.ToInt32(Console.ReadLine());
             string numResult = Convert.ToString((Convert.ToString(num1) + Convert.ToString(num2) + Convert.ToString(num3) + Convert.ToString(num4)));
             Console.WriteLine(Convert.ToInt32(numResult));
+
 
             /* ЗАДАНИЕ 4
              Пользователь вводит шестизначное число. После чего
@@ -81,6 +84,53 @@ namespace C__practika
             Число 723895 должно превратиться в 523897.
             Если пользователь ввел не шестизначное число требуется вывести сообщение об ошибке
              */
+            Console.WriteLine("Введите шестизначное число:");
+            int sixNum = Convert.ToInt32(Console.ReadLine());
+
+            if (sixNum >= 100000 && sixNum <= 999999)
+            {
+                Console.WriteLine("Введите два номера разрядов для обмена (например, 1 и 2):");
+                int change1 = Convert.ToInt32(Console.ReadLine());
+                int change2 = Convert.ToInt32(Console.ReadLine());
+
+                if (change1 >= 1 && change1 <= 6 && change2 >= 1 && change2 <= 6)
+                {
+                    // разбивка числа на цифры
+                    int[] digits = new int[6];
+                    int tempNum = sixNum;
+
+                    for (int i = 5; i >= 0; i--)
+                    {
+                        digits[i] = tempNum % 10;
+                        tempNum /= 10;
+                    }
+
+                    // обмен цифр
+                    int temp = digits[change1 - 1];
+                    digits[change1 - 1] = digits[change2 - 1];
+                    digits[change2 - 1] = temp;
+
+                    // Сборка числа
+                    int swappedNum = 0;
+                    for (int i = 0; i < 6; i++)
+                    {
+                        swappedNum = swappedNum * 10 + digits[i];
+                    }
+
+                    Console.WriteLine($"Число после обмена: {swappedNum}");
+                }
+                else
+                {
+                    Console.WriteLine("Некорректные номера разрядов для обмена.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Введенное число не является шестизначным.");
+            }
+
+
+
         }
     }
 }
