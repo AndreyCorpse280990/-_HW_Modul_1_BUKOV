@@ -130,6 +130,42 @@ namespace C__HW_Modul_1_Buikov
             }
 
 
+            /* ЗАДАЧА 5
+            Пользователь вводит с клавиатуры дату. Приложение должно отобразить название сезона и дня недели.
+            Например, если введено 22.12.2021, приложение должно
+            отобразить Winter Wednesday.    
+             */
+
+            Console.WriteLine("Введите дату, например 04.04.2024");
+            string date = Console.ReadLine();
+            string[] dateSplit = date.Split('.');
+
+            string day = dateSplit[0];
+            string month = dateSplit[1];
+            string strMonth = null;
+            int intMonth = Convert.ToInt32(month);
+
+            if (intMonth >= 3 && intMonth <= 5)
+            {
+                strMonth = "Spring"; // весна
+            }
+            else if (intMonth >= 6 && intMonth <= 8)
+            {
+                strMonth = "Summer"; // лето
+            }
+            else if (intMonth >= 9 && intMonth <= 11)
+            {
+                strMonth = "Autumn"; // осень
+            }
+            else if (intMonth == 12 || intMonth <= 2)
+            {
+                strMonth = "Winter"; // зима
+            }
+
+            Console.WriteLine(strMonth);
+
+
+
 
         }
     }
