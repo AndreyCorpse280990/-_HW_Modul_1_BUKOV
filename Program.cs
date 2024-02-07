@@ -140,30 +140,32 @@ namespace C__HW_Modul_1_Buikov
             string date = Console.ReadLine();
             string[] dateSplit = date.Split('.');
 
-            string day = dateSplit[0];
-            string month = dateSplit[1];
+            int day = Convert.ToInt32(dateSplit[0]);
+            int month = Convert.ToInt32(dateSplit[1]);
+            int year = Convert.ToInt32(dateSplit[2]);
             string strMonth = null;
-            int intMonth = Convert.ToInt32(month);
+            //int intMonth = Convert.ToInt32(month);
 
-            if (intMonth >= 3 && intMonth <= 5)
+            int daysSinceStartOfYear = (day + (13 * (month + 1)) / 5 + year % 100 + (year % 100) / 4 + (year / 100) / 4 + 5 * (year / 100)) % 7;
+            if (month >= 3 && month <= 5)
             {
                 strMonth = "Spring"; // весна
             }
-            else if (intMonth >= 6 && intMonth <= 8)
+            else if (month >= 6 && month <= 8)
             {
                 strMonth = "Summer"; // лето
             }
-            else if (intMonth >= 9 && intMonth <= 11)
+            else if (month >= 9 && month <= 11)
             {
                 strMonth = "Autumn"; // осень
             }
-            else if (intMonth == 12 || intMonth <= 2)
+            else if (month == 12 || month <= 2)
             {
                 strMonth = "Winter"; // зима
             }
 
             Console.WriteLine(strMonth);
-
+            Console.WriteLine(daysSinceStartOfYear);
 
 
 
