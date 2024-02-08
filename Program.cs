@@ -73,20 +73,21 @@ namespace C__HW_Modul_1_Buikov
             int num2 = Convert.ToInt32(Console.ReadLine());
             int num3 = Convert.ToInt32(Console.ReadLine());
             int num4 = Convert.ToInt32(Console.ReadLine());
-            string numResult = Convert.ToString((Convert.ToString(num1) + Convert.ToString(num2) + Convert.ToString(num3) + Convert.ToString(num4)));
-            Console.WriteLine(Convert.ToInt32(numResult));
+            int result = num1 * 1000 + num2 * 100 + num3 * 10 + num4;
+            Console.WriteLine($"Число, сформированное из введенных цифр: {result}");
+        
 
 
-            /* ЗАДАНИЕ 4
-             Пользователь вводит шестизначное число. После чего
-            пользователь вводит номера разрядов для обмена цифр.
-            Например, если пользователь ввёл один и шесть — это
-            значит, что надо обменять местами первую и шестую
-            цифры.
-            Число 723895 должно превратиться в 523897.
-            Если пользователь ввел не шестизначное число требуется вывести сообщение об ошибке
-             */
-            Console.WriteLine("\nЗадание 4");
+        /* ЗАДАНИЕ 4
+         Пользователь вводит шестизначное число. После чего
+        пользователь вводит номера разрядов для обмена цифр.
+        Например, если пользователь ввёл один и шесть — это
+        значит, что надо обменять местами первую и шестую
+        цифры.
+        Число 723895 должно превратиться в 523897.
+        Если пользователь ввел не шестизначное число требуется вывести сообщение об ошибке
+         */
+        Console.WriteLine("\nЗадание 4");
             Console.WriteLine("Введите шестизначное число:");
             int sixNum = Convert.ToInt32(Console.ReadLine());
 
