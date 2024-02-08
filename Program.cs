@@ -23,7 +23,7 @@ namespace C__HW_Modul_1_Buikov
             Console.WriteLine("Введите число от 1 до 100");
             double number = Convert.ToDouble(Console.ReadLine());
 
-            if (number > 1 && number < 100)
+            if (number >= 1 && number <= 100)
             {
                 if (number % 5 == 0 && number % 3 == 0)
                 {
@@ -174,9 +174,7 @@ namespace C__HW_Modul_1_Buikov
 
             // Количество дней от начала года до даты. формула Зеллера
             int daysSinceStartOfYear = (day + (13 * (month + 1)) / 5 + year % 100 + (year % 100) / 4 + (year / 100) / 4 + 5 * (year / 100)) % 7;
-
             string[] daysOfWeek = { "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
-
             string strDayOfWeek = daysOfWeek[daysSinceStartOfYear];
 
             Console.WriteLine($"День недели: { strDayOfWeek}");
@@ -210,8 +208,30 @@ namespace C__HW_Modul_1_Buikov
                     break;
             }
 
+            /* Задание 7
+             Пользователь вводит с клавиатуры два числа. Нужно
+             показать все четные числа в указанном диапазоне. Если
+             границы диапазона указаны неправильно требуется про-
+             извести нормализацию границ. Например, пользователь
+             ввел 20 и 11, требуется нормализация, после которой
+             начало диапазона станет равно 11, а конец 20.*/
+            Console.WriteLine("\nЗадание 7");
+            Console.WriteLine("Введите два числа:");
+            int inputNum1 = int.Parse(Console.ReadLine());
+            int inputNum2 = int.Parse(Console.ReadLine());
 
+            // Нормализация границ диапазона
+            int start = Math.Min(inputNum1, inputNum2);
+            int end = Math.Max(inputNum1, inputNum2);
 
+            Console.WriteLine($"Четные числа в диапазоне от {start} до {end}:");
+            for (int i = start; i <= end; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
         }
     }
 }
