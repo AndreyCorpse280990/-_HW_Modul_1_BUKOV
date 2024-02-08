@@ -19,7 +19,7 @@ namespace C__HW_Modul_1_Buikov
             Если пользователь ввел значение не в диапазоне от 1
             до 100 требуется вывести сообщение об ошибке.
             */
-
+            Console.WriteLine("Задание 1");
             Console.WriteLine("Введите число от 1 до 100");
             double number = Convert.ToDouble(Console.ReadLine());
 
@@ -55,6 +55,7 @@ namespace C__HW_Modul_1_Buikov
             90 и 10. Требуется вывести на экран 10 процентов от 90.
             Результат: 9.
             */
+            Console.WriteLine("\nЗадание 2");
             Console.WriteLine("Введите номер:");
             double number1 = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Введите процент:");
@@ -66,6 +67,7 @@ namespace C__HW_Modul_1_Buikov
              * Пользователь вводит с клавиатуры четыре цифры.
             Необходимо создать число, содержащее эти цифры. Например, если с клавиатуры введено 1, 5, 7, 8 тогда нужно
             сформировать число 1578.*/
+            Console.WriteLine("\nЗадание 3");
             Console.WriteLine("введите четырёхзначный номер ");
             int num1 = Convert.ToInt32(Console.ReadLine());
             int num2 = Convert.ToInt32(Console.ReadLine());
@@ -84,6 +86,7 @@ namespace C__HW_Modul_1_Buikov
             Число 723895 должно превратиться в 523897.
             Если пользователь ввел не шестизначное число требуется вывести сообщение об ошибке
              */
+            Console.WriteLine("\nЗадание 4");
             Console.WriteLine("Введите шестизначное число:");
             int sixNum = Convert.ToInt32(Console.ReadLine());
 
@@ -135,7 +138,7 @@ namespace C__HW_Modul_1_Buikov
             Например, если введено 22.12.2021, приложение должно
             отобразить Winter Wednesday.    
              */
-
+            Console.WriteLine("\nЗадание 5");
             Console.WriteLine("Введите дату, например 04.04.2024");
             string date = Console.ReadLine();
             string[] dateSplit = date.Split('.');
@@ -144,9 +147,7 @@ namespace C__HW_Modul_1_Buikov
             int month = Convert.ToInt32(dateSplit[1]);
             int year = Convert.ToInt32(dateSplit[2]);
             string strMonth = null;
-            //int intMonth = Convert.ToInt32(month);
-
-            int daysSinceStartOfYear = (day + (13 * (month + 1)) / 5 + year % 100 + (year % 100) / 4 + (year / 100) / 4 + 5 * (year / 100)) % 7;
+            
             if (month >= 3 && month <= 5)
             {
                 strMonth = "Spring"; // весна
@@ -164,8 +165,50 @@ namespace C__HW_Modul_1_Buikov
                 strMonth = "Winter"; // зима
             }
 
-            Console.WriteLine(strMonth);
-            Console.WriteLine(daysSinceStartOfYear);
+            // Месяцы январь и февраль считаются за 13 и 14 месяцы предыдущего года
+            if (month == 1 || month == 2)
+            {
+                month += 12;
+                year--;
+            }
+
+            // Количество дней от начала года до даты. формула Зеллера
+            int daysSinceStartOfYear = (day + (13 * (month + 1)) / 5 + year % 100 + (year % 100) / 4 + (year / 100) / 4 + 5 * (year / 100)) % 7;
+
+            string[] daysOfWeek = { "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
+
+            string strDayOfWeek = daysOfWeek[daysSinceStartOfYear];
+
+            Console.WriteLine($"День недели: { strDayOfWeek}");
+            Console.WriteLine($"Время года: {strMonth}");
+
+
+            /* ЗАДАЧА 6
+             * Пользователь вводит с клавиатуры показания тем-
+               пературы. В зависимости от выбора пользователя про-
+               грамма переводит температуру из Фаренгейта в Цельсий
+               или наоборот.
+             */
+            Console.WriteLine("\nЗадание 6");
+            Console.WriteLine("Введите температуру.");
+            double temperature = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Выберите во что перевести(1 - F| 2 - C)");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
+                    double fahrenheit = (temperature * 9 / 5) + 32;
+                    Console.WriteLine($"Температура в фаренгейтах = {fahrenheit}");
+                    break;
+                case 2:
+                    double celsius = (temperature - 32) * 5 / 9;
+                    Console.WriteLine($"Температура в цельсиях = {celsius}");
+                    break;
+                default:
+                    Console.WriteLine("Выбор сделан неверно");
+                    break;
+            }
 
 
 
