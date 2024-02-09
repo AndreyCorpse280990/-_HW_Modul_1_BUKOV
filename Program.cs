@@ -8,7 +8,7 @@ namespace C__HW_Modul_1_Buikov
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Task1()
         {
             /* Задание 1
             Пользователь вводит с клавиатуры число в диапазоне от 1 до 100.Если число кратно 3(делится на 3 без
@@ -46,8 +46,10 @@ namespace C__HW_Modul_1_Buikov
             {
                 Console.WriteLine("число не находится в диапазоне от 1 до 100");
             }
+        }
 
-
+        static void Task2()
+        {
             /* ЗАДАНИЕ 2
              Пользователь вводит с клавиатуры два числа. Первое
             число — это значение, второе число процент, который
@@ -61,12 +63,14 @@ namespace C__HW_Modul_1_Buikov
             Console.WriteLine("Введите процент:");
             double percent = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine($"Результат {number1 * (percent / 100)}");
+        }
 
-
+        static void Task3()
+        {
             /* ЗАДАНИЕ 3
-             * Пользователь вводит с клавиатуры четыре цифры.
-            Необходимо создать число, содержащее эти цифры. Например, если с клавиатуры введено 1, 5, 7, 8 тогда нужно
-            сформировать число 1578.*/
+            * Пользователь вводит с клавиатуры четыре цифры.
+           Необходимо создать число, содержащее эти цифры. Например, если с клавиатуры введено 1, 5, 7, 8 тогда нужно
+           сформировать число 1578.*/
             Console.WriteLine("\nЗадание 3");
             Console.WriteLine("введите четырёхзначный номер ");
             int num1 = Convert.ToInt32(Console.ReadLine());
@@ -75,9 +79,12 @@ namespace C__HW_Modul_1_Buikov
             int num4 = Convert.ToInt32(Console.ReadLine());
             int result = num1 * 1000 + num2 * 100 + num3 * 10 + num4;
             Console.WriteLine($"Число, сформированное из введенных цифр: {result}");
-        
 
-        /* ЗАДАНИЕ 4
+        }
+
+        static void Task4()
+        {
+            /* ЗАДАНИЕ 4
          Пользователь вводит шестизначное число. После чего
         пользователь вводит номера разрядов для обмена цифр.
         Например, если пользователь ввёл один и шесть — это
@@ -86,7 +93,7 @@ namespace C__HW_Modul_1_Buikov
         Число 723895 должно превратиться в 523897.
         Если пользователь ввел не шестизначное число требуется вывести сообщение об ошибке
          */
-        Console.WriteLine("\nЗадание 4");
+            Console.WriteLine("\nЗадание 4");
             Console.WriteLine("Введите шестизначное число:");
             int sixNum = Convert.ToInt32(Console.ReadLine());
 
@@ -131,8 +138,10 @@ namespace C__HW_Modul_1_Buikov
             {
                 Console.WriteLine("Введенное число не является шестизначным.");
             }
+        }
 
-
+        static void Task5()
+        {
             /* ЗАДАЧА 5
             Пользователь вводит с клавиатуры дату. Приложение должно отобразить название сезона и дня недели.
             Например, если введено 22.12.2021, приложение должно
@@ -147,7 +156,7 @@ namespace C__HW_Modul_1_Buikov
             int month = Convert.ToInt32(dateSplit[1]);
             int year = Convert.ToInt32(dateSplit[2]);
             string strMonth = null;
-            
+
             if (month >= 3 && month <= 5)
             {
                 strMonth = "Spring"; // весна
@@ -177,10 +186,12 @@ namespace C__HW_Modul_1_Buikov
             string[] daysOfWeek = { "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
             string strDayOfWeek = daysOfWeek[daysSinceStartOfYear];
 
-            Console.WriteLine($"День недели: { strDayOfWeek}");
+            Console.WriteLine($"День недели: {strDayOfWeek}");
             Console.WriteLine($"Время года: {strMonth}");
+        }
 
-
+        static void Task6()
+        {
             /* ЗАДАЧА 6
              * Пользователь вводит с клавиатуры показания тем-
                пературы. В зависимости от выбора пользователя про-
@@ -207,7 +218,10 @@ namespace C__HW_Modul_1_Buikov
                     Console.WriteLine("Выбор сделан неверно");
                     break;
             }
+        }
 
+        static void Task7()
+        {
             /* Задание 7
              Пользователь вводит с клавиатуры два числа. Нужно
              показать все четные числа в указанном диапазоне. Если
@@ -232,6 +246,10 @@ namespace C__HW_Modul_1_Buikov
                     Console.WriteLine(i);
                 }
             }
+        }
+        static void Main(string[] args)
+        {
+            Task1();
         }
     }
 }
